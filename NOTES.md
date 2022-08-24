@@ -36,3 +36,9 @@ even though I have installed the `rulers` gem I just built in the previous step.
 Update: it turns out, as I changed directory, `chruby` was not active anymore and I had reverted to a different version of Ruby for which I had not installed the gem. Switching back to the same Ruby version, I was able to run `bundle install --local` without an Internet connection.
 
 Need to confirm: is there a risk of confusion where my `best_quotes` app might be using the local `rulers`, or might download the one on RubyGems? Is that what was meant in the previous chapter?
+
+## Exercise Two
+
+> any application including Rulers will be able to write ["", ""].sum and get the sum of the array
+
+Looks like this should be referencing `Array#deeply_empty?`
