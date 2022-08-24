@@ -1,4 +1,2 @@
-run proc {
-  [200, { "Content-Type" => "text/html" },
-   ["Hello World!"]]
-}
+require "./config/application.rb"
+run BestQuotes::Application.new
