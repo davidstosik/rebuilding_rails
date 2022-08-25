@@ -50,3 +50,8 @@ Looks like this should be referencing `Array#deeply_empty?`
 `bundle gem` already set up minitest for me, so I already have `test_helper.rb`.
 
 TIL about passing a string to `String#[]`.
+
+## Exercise Four
+
+It seems `rackup` now uses puma. `rackup -s webrick` can run WEBrick.
+One might need to install Unicorn before being able to run `unicorn`.
