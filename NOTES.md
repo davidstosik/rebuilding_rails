@@ -42,3 +42,11 @@ Need to confirm: is there a risk of confusion where my `best_quotes` app might b
 > any application including Rulers will be able to write ["", ""].sum and get the sum of the array
 
 Looks like this should be referencing `Array#deeply_empty?`
+
+## Exercise Three
+
+`bundle gem`'s default seems to have changed to having development dependecies in `Gemfile`. Has something changed?
+
+`bundle gem` already set up minitest for me, so I already have `test_helper.rb`.
+
+TIL about passing a string to `String#[]`.
