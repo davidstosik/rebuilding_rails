@@ -55,3 +55,8 @@ TIL about passing a string to `String#[]`.
 
 It seems `rackup` now uses puma. `rackup -s webrick` can run WEBrick.
 One might need to install Unicorn before being able to run `unicorn`.
+
+## Exercise Five
+
+Already done earlier, in commit a0a0911.
+Question: should we ignore `Gemfile.lock` too?
