@@ -1,4 +1,6 @@
-# Zero to “It Works!”
+My notes while going through the book Rebuilding Rails and writing code.
+
+# 1. Zero to "It Works!"
 
 ## In the Rough
 
@@ -60,3 +62,7 @@ One might need to install Unicorn before being able to run `unicorn`.
 
 Already done earlier, in commit a0a0911.
 Question: should we ignore `Gemfile.lock` too?
+
+# 2. Your First Controller
+
+Been wondering: would I prefer having the `rulers` gem and the `best_quotes` app in a single repository, for convenience?
