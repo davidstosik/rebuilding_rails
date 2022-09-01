@@ -21,22 +21,10 @@ class RulersAppTest < Minitest::Test
     Class.new(Rulers::Application).new
   end
 
-  def test_request_root_without_homecontroller
-    home_controller = HomeController
-    Object.send(:remove_const, "HomeController")
-
+  def test_request_root_redirects_to_existing_controller_action
     get "/"
 
-    assert last_response.not_found?
-
-    Object.const_set("HomeController", home_controller)
-  end
-
-  def test_request_root_with_homecontroller
-    get "/"
-
-    assert last_response.ok?
-    assert last_response.body["in HomeController#index"]
+    assert last_response.redirect?
   end
 
   def test_request_dummy

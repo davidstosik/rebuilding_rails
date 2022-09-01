@@ -18,5 +18,16 @@ module Rulers
 
       [Object.const_get(cont), action]
     end
+
+    def any_controller_and_action
+      controller_name = Object.constants.grep(/Controller$/).first
+      raise RoutingError unless controller_name
+
+      controller = Object.const_get(controller_name)
+      action = controller.instance_methods(false).first
+      raise RoutingError unless action
+
+      [controller, action]
+    end
   end
 end

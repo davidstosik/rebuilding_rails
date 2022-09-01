@@ -97,3 +97,4 @@ I decided to only return a 500 text error including the exception's inspect.
 ### Exercise Three: Roots and Routes
 
 - Not sure how I'd read and return the content of `public/index.html`: will it just work?
+- Wanted to redirect, but couldn't figure out where. So I decided to pick the first existing controller/action.
