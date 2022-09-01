@@ -82,3 +82,9 @@ The first routing implementation does not work for the root path (it requires th
 
 I decided to `rescue NameError` for a slightly less horrible hack handling both favicon.ico and other 404s.
 I also learned that `NoMethodError` is a subclass of `NameError`, so I don't need to rescue both.
+
+### Exercise One: Debugging the Rack Environment
+
+I wanted a prettier print but did not find any out-of-the-box solution except `JSON.pretty_generate`. Probably not even perfect...
+
+Also forgot I had to restart rackup for every change in the application.
