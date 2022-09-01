@@ -93,3 +93,7 @@ Also forgot I had to restart rackup for every change in the application.
 ### Exercise Two: Debugging Exceptions
 
 I decided to only return a 500 text error including the exception's inspect.
+
+### Exercise Three: Roots and Routes
+
+- Not sure how I'd read and return the content of `public/index.html`: will it just work?

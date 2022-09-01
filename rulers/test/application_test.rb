@@ -16,12 +16,11 @@ class RulersAppTest < Minitest::Test
   end
 
   def test_request_root
-    skip
     get "/"
 
     assert last_response.ok?
     body = last_response.body
-    assert body["Hello"]
+    assert body["Root"]
   end
 
   def test_request_dummy

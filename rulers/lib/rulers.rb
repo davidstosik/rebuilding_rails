@@ -9,6 +9,24 @@ require "rulers/routing"
 module Rulers
   class Application
     def call(env)
+      if requested_root?(env)
+        respond_for_root(env)
+      else
+        respond(env)
+      end
+    end
+
+    private
+
+    def requested_root?(env)
+      env["PATH_INFO"] == "/"
+    end
+
+    def respond_for_root(_env)
+      [200, { "Content-Type" => "text/html" }, ["Root"]]
+    end
+
+    def respond(env)
       controller_class, action = begin
         get_controller_and_action(env)
       rescue RoutingError
