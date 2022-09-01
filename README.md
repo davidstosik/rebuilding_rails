@@ -89,3 +89,7 @@ Update: turns out this was a bad idea. Raising a `RoutingError` from `#get_contr
 I wanted a prettier print but did not find any out-of-the-box solution except `JSON.pretty_generate`. Probably not even perfect...
 
 Also forgot I had to restart rackup for every change in the application.
+
+### Exercise Two: Debugging Exceptions
+
+I decided to only return a 500 text error including the exception's inspect.

@@ -18,6 +18,8 @@ module Rulers
       text = controller_class.new(env).send(action)
 
       [200, { "Content-Type" => "text/html" }, [text]]
+    rescue StandardError => e
+      [500, { "Content-Type" => "text" }, ["There was an error: #{e.inspect}"]]
     end
   end
 

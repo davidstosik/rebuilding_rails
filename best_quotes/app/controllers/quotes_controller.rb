@@ -11,4 +11,8 @@ class QuotesController < Rulers::Controller
       </pre>
       ENV
   end
+
+  def exception
+    raise "It's a bad one!"
+  end
 end
