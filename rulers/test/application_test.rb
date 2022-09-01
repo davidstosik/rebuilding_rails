@@ -8,6 +8,12 @@ class DummyController < Rulers::Controller
   end
 end
 
+class HomeController < Rulers::Controller
+  def index
+    "in HomeController#index"
+  end
+end
+
 class RulersAppTest < Minitest::Test
   include Rack::Test::Methods
 
@@ -15,23 +21,22 @@ class RulersAppTest < Minitest::Test
     Class.new(Rulers::Application).new
   end
 
-  def test_request_root_without_indexhtml
-    refute File.exist?("public/index.html")
+  def test_request_root_without_homecontroller
+    home_controller = HomeController
+    Object.send(:remove_const, "HomeController")
 
     get "/"
 
     assert last_response.not_found?
+
+    Object.const_set("HomeController", home_controller)
   end
 
-  def test_request_root_with_indexhtml
-    File.stub(:exist?, true) do
-      File.stub(:read, "expected content") do
-        get "/"
+  def test_request_root_with_homecontroller
+    get "/"
 
-        assert last_response.ok?
-        assert last_response.body["expected content"]
-      end
-    end
+    assert last_response.ok?
+    assert last_response.body["in HomeController#index"]
   end
 
   def test_request_dummy

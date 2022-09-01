@@ -22,12 +22,8 @@ module Rulers
       env["PATH_INFO"] == "/"
     end
 
-    def respond_for_root(_env)
-      if File.exist?("public/index.html")
-        [200, { "Content-Type" => "text/html" }, [File.read("public/index.html")]]
-      else
-        [404, { "Content-Type" => "text/html" }, ["Not Found"]]
-      end
+    def respond_for_root(env)
+      respond(env.merge("PATH_INFO" => "/home/index"))
     end
 
     def respond(env)
