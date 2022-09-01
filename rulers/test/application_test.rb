@@ -15,12 +15,23 @@ class RulersAppTest < Minitest::Test
     Class.new(Rulers::Application).new
   end
 
-  def test_request_root
+  def test_request_root_without_indexhtml
+    refute File.exist?("public/index.html")
+
     get "/"
 
-    assert last_response.ok?
-    body = last_response.body
-    assert body["Root"]
+    assert last_response.not_found?
+  end
+
+  def test_request_root_with_indexhtml
+    File.stub(:exist?, true) do
+      File.stub(:read, "expected content") do
+        get "/"
+
+        assert last_response.ok?
+        assert last_response.body["expected content"]
+      end
+    end
   end
 
   def test_request_dummy

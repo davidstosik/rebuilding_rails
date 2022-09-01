@@ -23,7 +23,11 @@ module Rulers
     end
 
     def respond_for_root(_env)
-      [200, { "Content-Type" => "text/html" }, ["Root"]]
+      if File.exist?("public/index.html")
+        [200, { "Content-Type" => "text/html" }, [File.read("public/index.html")]]
+      else
+        [404, { "Content-Type" => "text/html" }, ["Not Found"]]
+      end
     end
 
     def respond(env)
