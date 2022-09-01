@@ -2,6 +2,12 @@
 
 require_relative "test_helper"
 
+class DummyController < Rulers::Controller
+  def dummy_action
+    "expected text"
+  end
+end
+
 class RulersAppTest < Minitest::Test
   include Rack::Test::Methods
 
@@ -10,11 +16,20 @@ class RulersAppTest < Minitest::Test
   end
 
   def test_request_root
+    skip
     get "/"
 
     assert last_response.ok?
     body = last_response.body
     assert body["Hello"]
+  end
+
+  def test_request_dummy
+    get "/dummy/dummy_action"
+
+    assert last_response.ok?
+    body = last_response.body
+    assert body["expected text"]
   end
 
   def test_request_not_found

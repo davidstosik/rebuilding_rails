@@ -73,3 +73,7 @@ Question: should we ignore `Gemfile.lock` too?
 ### Sidetrack: merging the two repositories
 
 I wanted to gather both `rulers` and `best_quotes` repositories in a single one, so that I see a single repository on GitHub, and it was possible while keeping the Git history, following this article: [Combine Git repositories with unrelated histories](https://jeffkreeftmeijer.com/git-combine). Now back to chapter 2.
+
+### On the Rack
+
+The first routing implementation does not work for the root path (it requires the URL to have a controller and action). It broke a test, and writing a test that would pass instead was a bit difficult.
