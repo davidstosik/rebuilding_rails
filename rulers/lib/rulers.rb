@@ -9,12 +9,15 @@ require "rulers/routing"
 module Rulers
   class Application
     def call(env)
-      klass, act = get_controller_and_action(env)
-      controller = klass.new(env)
-      text = controller.send(act)
+      controller_class, action = begin
+        get_controller_and_action(env)
+      rescue RoutingError
+        return [404, { "Content-Type" => "text/html" }, ["Not Found"]]
+      end
+
+      text = controller_class.new(env).send(action)
+
       [200, { "Content-Type" => "text/html" }, [text]]
-    rescue NameError
-      [404, { "Content-Type" => "text/html" }, ["Not Found"]]
     end
   end
 
