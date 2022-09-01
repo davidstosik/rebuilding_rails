@@ -77,3 +77,8 @@ I wanted to gather both `rulers` and `best_quotes` repositories in a single one,
 ### On the Rack
 
 The first routing implementation does not work for the root path (it requires the URL to have a controller and action). It broke a test, and writing a test that would pass instead was a bit difficult.
+
+### It Almost Worked!
+
+I decided to `rescue NameError` for a slightly less horrible hack handling both favicon.ico and other 404s.
+I also learned that `NoMethodError` is a subclass of `NameError`, so I don't need to rescue both.

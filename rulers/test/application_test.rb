@@ -33,8 +33,13 @@ class RulersAppTest < Minitest::Test
   end
 
   def test_request_not_found
-    skip
-    get "/missing"
+    get "/missing/action"
+
+    assert last_response.not_found?
+  end
+
+  def test_request_favicon
+    get "/favicon.ico"
 
     assert last_response.not_found?
   end
