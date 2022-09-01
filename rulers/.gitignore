@@ -7,5 +7,5 @@
 /spec/reports/
 /tmp/
 
-Gemfile.lock
-rulers-*.gem
+/Gemfile.lock
+/rulers-*.gem
