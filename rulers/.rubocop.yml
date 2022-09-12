@@ -8,6 +8,10 @@ Gemspec/RequireMFA:
 Layout/LineLength:
   Max: 120
 
+Metrics/MethodLength:
+  Exclude:
+    - 'test/**/*_test.rb'
+
 Style/Documentation:
   Enabled: false
 
