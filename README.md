@@ -98,3 +98,24 @@ I decided to only return a 500 text error including the exception's inspect.
 
 - Not sure how I'd read and return the content of `public/index.html`: will it just work?
 - Wanted to redirect, but couldn't figure out where. So I decided to pick the first existing controller/action.
+
+## 3. Rails Automatic Loading
+
+Other debug tricks:
+
+- `#p` and `#pp` (though don't exist on `STDERR`)
+- `#pretty_inspect`
+- adding an emoji to the beginning of a debug
+
+I wish I could have something like this in my toolbox:
+```rb
+def ppp(obj, message=nil, out: STDERR, emoji: "⬇️")
+  out.puts("#{emoji} #{message}")
+  out << obj.pretty_inspect
+  nil
+end
+```
+
+### CamelCase and snake_case
+
+I decided to monkey-patch `String` instead of writing a less OO util method.
