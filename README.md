@@ -119,3 +119,12 @@ end
 ### CamelCase and snake_case
 
 I decided to monkey-patch `String` instead of writing a less OO util method.
+
+### Reloading Means Convenience
+
+When I run `bundle exec rackup`, it complains that it can't find any handler (`:puma`, `:thin`, `:falcon`, `:webrick`).
+Adding any of those gems to my Gemfile seems to fix it.
+
+Alternatively, it looks like Rack split `rackup` into [its own gem](https://github.com/rack/rackup), which I can also add to my Gemfile, and will add a webrick dependency.
+
+Everything worked so far probably because I've had `puma` installed on my system, coming as a dependency of another project.
