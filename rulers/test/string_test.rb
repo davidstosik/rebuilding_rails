@@ -8,7 +8,8 @@ class StringTest < Minitest::Test
       "ABBREV" => "abbrev",
       "ABBREVPlus" => "abbrev_plus",
       "TestUnder" => "test_under",
-      "With7Digit" => "with7_digit"
+      "With7Digit" => "with7_digit",
+      "test-dash" => "test_dash",
     }
 
     samples.each do |camel, underscore|
