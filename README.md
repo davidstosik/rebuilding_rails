@@ -136,3 +136,7 @@ Everything worked so far probably because I've had `puma` installed on my system
 I just realized I still have the reflex to name files to match the constant they (re)open. Which means I have an `object.rb` file for my `#present?` and `#blank?` monkey patches. I realize it's not a requirement, and I would better name some files (at least monkey patch ones) to provide more intent.
 
 The basic implementation of `Object.const_missing` triggered an error in my tests, because I have a scenario that tries to `GET `/missing/action`, which ends up trying to load `MissingController` a truly missing constant. I need to add a rescue to call `super` if `require` fails.
+
+One more error: if the file happens to exist, but does not define the constant, `const_missing` recurses infinitely. Had to check `const_defined?`.
+
+(The problems I encounter usually get documented in tests.)

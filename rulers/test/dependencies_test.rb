@@ -28,4 +28,19 @@ class DependenciesTest < Minitest::Test
   def test_autoloading_raises_name_error_when_file_not_found
     assert_raises(NameError) { DummyClass }
   end
+
+  def test_autoloading_raises_name_error_when_constant_not_found
+    Dir.mktmpdir do |tmpdir|
+      file_path = File.join(tmpdir, "dummy_class.rb")
+      File.open(file_path, "wb") do |file|
+        file << "# empty"
+      end
+
+      $LOAD_PATH << tmpdir
+
+      assert_raises(NameError) { DummyClass }
+
+      $LOAD_PATH.delete(tmpdir)
+    end
+  end
 end

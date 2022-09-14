@@ -3,9 +3,12 @@
 class Object
   def self.const_missing(const_name)
     require const_name.to_s.underscore
-    Object.const_get(const_name)
+    if const_defined?(const_name)
+      Object.const_get(const_name)
+    else
+      super
+    end
   rescue LoadError
-    puts "Failed to load #{const_name}"
     super
   end
 end
