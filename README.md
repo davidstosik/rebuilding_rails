@@ -128,3 +128,11 @@ Adding any of those gems to my Gemfile seems to fix it.
 Alternatively, it looks like Rack split `rackup` into [its own gem](https://github.com/rack/rackup), which I can also add to my Gemfile, and will add a webrick dependency.
 
 Everything worked so far probably because I've had `puma` installed on my system, coming as a dependency of another project.
+
+(Maybe I'll switch to Rack 3.0.0 at some point.)
+
+### Putting It Together
+
+I just realized I still have the reflex to name files to match the constant they (re)open. Which means I have an `object.rb` file for my `#present?` and `#blank?` monkey patches. I realize it's not a requirement, and I would better name some files (at least monkey patch ones) to provide more intent.
+
+The basic implementation of `Object.const_missing` triggered an error in my tests, because I have a scenario that tries to `GET `/missing/action`, which ends up trying to load `MissingController` a truly missing constant. I need to add a rescue to call `super` if `require` fails.

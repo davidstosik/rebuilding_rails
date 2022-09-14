@@ -5,6 +5,7 @@ require_relative "rulers/version"
 require "rulers/object"
 require "rulers/string"
 require "rulers/array"
+require "rulers/dependencies"
 
 require "rulers/routing"
 
