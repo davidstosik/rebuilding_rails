@@ -144,3 +144,7 @@ One more error: if the file happens to exist, but does not define the constant, 
 ### Exercise One
 
 The recursion I mentionned earlier was actually in Exercise 1! Guess writing tests got me there a bit early. My suggested fix using `const_defined?` is different from the book's, so I'll go with it.
+
+### Exercise Two
+
+`rerun` seems to be working out of the box for me.

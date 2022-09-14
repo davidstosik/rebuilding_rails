@@ -7,13 +7,23 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    ffi (1.15.5)
+    listen (3.7.1)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     rack (2.2.4)
+    rb-fsevent (0.11.2)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
+    rerun (0.13.1)
+      listen (~> 3.0)
     webrick (1.7.0)
 
 PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
+  rerun (~> 0.13.1)
   rulers!
   webrick (~> 1.7)
 
