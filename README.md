@@ -140,3 +140,7 @@ The basic implementation of `Object.const_missing` triggered an error in my test
 One more error: if the file happens to exist, but does not define the constant, `const_missing` recurses infinitely. Had to check `const_defined?`.
 
 (The problems I encounter usually get documented in tests.)
+
+### Exercise One
+
+The recursion I mentionned earlier was actually in Exercise 1! Guess writing tests got me there a bit early. My suggested fix using `const_defined?` is different from the book's, so I'll go with it.
