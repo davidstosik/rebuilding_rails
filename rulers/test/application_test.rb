@@ -24,7 +24,9 @@ class RulersAppTest < Minitest::Test
   def test_request_root_redirects_to_existing_controller_action
     get "/"
 
-    assert last_response.redirect?
+    assert last_response.ok?
+    body = last_response.body
+    assert body["in HomeController#index"]
   end
 
   def test_request_dummy
