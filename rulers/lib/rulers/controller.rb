@@ -15,6 +15,14 @@ module Rulers
       eruby.result(locals.merge(env: env))
     end
 
+    def controller_name
+      self
+        .class
+        .to_s
+        .delete_suffix("Controller")
+        .underscore
+    end
+
     private
 
     attr_reader :env
