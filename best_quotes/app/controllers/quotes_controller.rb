@@ -4,12 +4,7 @@ require "json"
 
 class QuotesController < Rulers::Controller
   def a_quote
-    "There is nothing either good or bad but thinking makes it so." +
-      <<~ENV
-      <pre>
-      #{JSON.pretty_generate(env)}
-      </pre>
-      ENV
+    render :a_quote, noun: "winking"
   end
 
   def exception
