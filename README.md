@@ -148,3 +148,14 @@ The recursion I mentionned earlier was actually in Exercise 1! Guess writing tes
 ### Exercise Two
 
 `rerun` seems to be working out of the box for me.
+
+## 4. Rendering Views
+
+### Erb and Erubis
+
+Last version of Erubis is 12 years old! And yet seems to work.
+
+### And Now, Back to Our Program
+
+Writing tests is starting to become tricky. How do I fake the presence of a file in "app/views/..."?
+Is the only way to test properly to have a dummy Rulers application?

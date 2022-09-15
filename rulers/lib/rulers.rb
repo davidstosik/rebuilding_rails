@@ -6,6 +6,7 @@ require "rulers/object"
 require "rulers/string"
 require "rulers/array"
 require "rulers/dependencies"
+require "rulers/controller"
 
 require "rulers/routing"
 
@@ -44,15 +45,5 @@ module Rulers
     rescue StandardError => e
       [500, { "Content-Type" => "text" }, ["There was an error: #{e.inspect}"]]
     end
-  end
-
-  class Controller
-    def initialize(env)
-      @env = env
-    end
-
-    private
-
-    attr_reader :env
   end
 end
